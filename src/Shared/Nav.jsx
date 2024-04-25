@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../Services/AuthProvider";
 
 function Nav() {
+  const {name} = useContext(AuthContext)
+  console.log(name);
   const link = (
     <>
       <NavLink className="pr-6 font-semibold" to="/">

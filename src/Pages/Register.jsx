@@ -1,12 +1,37 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../assets/log1.jpg";
 
 import logo from "../assets/logo.png";
+import { AuthContext } from "../Services/AuthProvider";
+import Swal from "sweetalert2";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
-  const handleLogin = () => {};
+  const { createUser } = useContext(AuthContext);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    createUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        Swal.fire({
+          title: 'Register Successfully',
+          text: 'Do you want to continue',
+          icon: 'success',
+          confirmButtonText: 'Cool',
+          confirmButtonColor: "#111827"
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -106,9 +131,6 @@ function Register() {
                   </Link>
                 </p>
               </div>
-
-             
-            
             </form>
           </div>
         </div>
@@ -125,7 +147,9 @@ function Register() {
                 Draw<span className="font-light">Mastery</span>
               </a>
             </div>
-            <p className="text-gray-300 max-w-sm text-sm font-thin ">If you could say it in words, there would be no reason to paint</p>
+            <p className="text-gray-300 max-w-sm text-sm font-thin ">
+              If you could say it in words, there would be no reason to paint
+            </p>
           </div>
         </div>
       </div>
