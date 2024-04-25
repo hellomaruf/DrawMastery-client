@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../assets/log1.jpg";
-import google from "../assets/google.png";
-import github from "../assets/github.png";
+
 import logo from "../assets/logo.png";
 
-function Login() {
+function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const handleLogin = () => {};
 
@@ -16,7 +15,7 @@ function Login() {
           <div data-aos="fade-left" data-aos-duration="900" className="">
             <div className=" space-y-2 text-center">
               <h2 className=" text-2xl lg:text-3xl font-right">
-                Login to your Account
+                Register to your Account
               </h2>
               <p>Welcome back select mathod to Login</p>
             </div>
@@ -29,12 +28,36 @@ function Login() {
             >
               <div className="form-control">
                 <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="Enter your Name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   name="email"
                   type="email"
                   placeholder="Enter your Email"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo</span>
+                </label>
+                <input
+                  name="photo"
+                  type="text"
+                  placeholder="Photo URL"
                   className="input input-bordered"
                   required
                 />
@@ -71,29 +94,21 @@ function Login() {
               </div>
               <div className="form-control mt-6">
                 <button className="btn bg-gray-900 hover:bg-gray-700 text-white">
-                  Login
+                  Register
                 </button>
               </div>
               <div className="text-center pt-2">
                 <p>
                   {" "}
-                  Don’t have an account?{" "}
-                  <Link to="/register" className="text-gray-900 font-bold">
-                    Create an account
+                  Already have an account?{" "}
+                  <Link to="/login" className="text-gray-900 font-bold">
+                    Please Login
                   </Link>
                 </p>
               </div>
-              <div className="divider py-3">OR</div>
-              <div className=" mt-4 flex flex-col gap-4 text-center ">
-                <button className="btn">
-                  <img className="w-6" src={google} alt="" /> Sign in with
-                  Google
-                </button>
-                <button className="btn">
-                  <img className="w-6" src={github} alt="" />
-                  Sign in with Github
-                </button>
-              </div>
+
+             
+            
             </form>
           </div>
         </div>
@@ -110,9 +125,7 @@ function Login() {
                 Draw<span className="font-light">Mastery</span>
               </a>
             </div>
-            <p className="text-gray-300 max-w-sm text-sm font-thin ">
-              If you could say it in words, there would be no reason to paint
-            </p>
+            <p className="text-gray-300 max-w-sm text-sm font-thin ">If you could say it in words, there would be no reason to paint</p>
           </div>
         </div>
       </div>
@@ -120,4 +133,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

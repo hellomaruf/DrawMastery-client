@@ -61,9 +61,9 @@ function Nav() {
           >
             Login
           </Link>
-          <a className="btn bg-gray-900 hover:bg-gray-600 text-white">
+          <Link to='/register' className="btn bg-gray-900 hover:bg-gray-600 text-white">
             Register
-          </a>
+          </Link>
         </div>
       </div>
     </div>
