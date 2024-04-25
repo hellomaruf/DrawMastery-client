@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 function Nav() {
   const link = (
@@ -18,7 +19,7 @@ function Nav() {
     </>
   );
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto my-3">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -49,9 +50,20 @@ function Nav() {
             <ul className="menu menu-horizontal px-1">{link}</ul>
           </div>
         </div>
-        <a className="btn btn-ghost text-xl">DrawMastery</a>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="flex gap-2">
+          <img className="w-10" src={logo} alt="" />
+          <a className="text-2xl font-extrabold">Draw<span className="font-light">Mastery</span></a>
+        </div>
+        <div className="navbar-end flex gap-4">
+          <Link
+            to="/login"
+            className="btn border-2 border-gray-900 hover:bg-gray-100 bg-white"
+          >
+            Login
+          </Link>
+          <a className="btn bg-gray-900 hover:bg-gray-600 text-white">
+            Register
+          </a>
         </div>
       </div>
     </div>

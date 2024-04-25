@@ -21,7 +21,7 @@ function Hero() {
             voluptates error unde.
           </p>
           <div className="">
-            <button className="btn">Explore</button>
+            <button className="btn bg-gray-900 hover:bg-gray-600 text-white ">Explore</button>
           </div>
         </div>
         <div className="col-span-1">
