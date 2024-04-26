@@ -9,24 +9,35 @@ import Swal from "sweetalert2";
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const { createUser } = useContext(AuthContext);
-
+  const [passError, setPassError] = useState("");
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
+    // const name = form.name.value;
     const email = form.email.value;
-    const photo = form.photo.value;
+    // const photo = form.photo.value;
     const password = form.password.value;
+    if (!/^.{6,}$/g.test(password)) {
+      setPassError("Password must be at least 6 character");
+      return;
+    }
+    if (!/^(?=.*[a-z])(?=.*[A-Z]).+$/g.test(password)) {
+      setPassError(
+        "Password should contain at least uppercase and lowercase letters"
+      );
+      return;
+    }
+    setPassError("");
     createUser(email, password)
       .then((res) => {
         console.log(res.user);
         Swal.fire({
-          title: 'Register Successfully',
-          text: 'Do you want to continue',
-          icon: 'success',
-          confirmButtonText: 'Cool',
-          confirmButtonColor: "#111827"
-        })
+          title: "Register Successfully",
+          text: "Do you want to continue",
+          icon: "success",
+          confirmButtonText: "Cool",
+          confirmButtonColor: "#111827",
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -111,6 +122,7 @@ function Register() {
                     )}
                   </p>
                 </div>
+                <small className="text-red-600 py-1">{passError}</small>
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
