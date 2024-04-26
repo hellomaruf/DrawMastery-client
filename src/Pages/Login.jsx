@@ -4,10 +4,33 @@ import img from "../assets/log1.jpg";
 import google from "../assets/google.png";
 import github from "../assets/github.png";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../Services/AuthProvider";
+import Swal from "sweetalert2";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
-  const handleLogin = () => {};
+  const { signInUser } = useContext(AuthContext);
+  const handleLogin = (e) => {
+    e.preventDefault()
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signInUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        Swal.fire({
+          title: 'Login Successfully',
+          text: 'Do you want to continue',
+          icon: 'success',
+          confirmButtonText: 'Cool',
+          confirmButtonColor: "#111827"
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="max-w-7xl mx-auto">
