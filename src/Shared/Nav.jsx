@@ -4,8 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../Services/AuthProvider";
 
 function Nav() {
-  const {name} = useContext(AuthContext)
-  console.log(name);
+  const { user } = useContext(AuthContext);
+  console.log(user.email);
   const link = (
     <>
       <NavLink className="pr-6 font-semibold" to="/">
@@ -56,7 +56,9 @@ function Nav() {
         </div>
         <div className="flex gap-2">
           <img className="w-10" src={logo} alt="" />
-          <a className="text-2xl font-extrabold">Draw<span className="font-light">Mastery</span></a>
+          <a className="text-2xl font-extrabold">
+            Draw<span className="font-light">Mastery</span>
+          </a>
         </div>
         <div className="navbar-end flex gap-4">
           <Link
@@ -65,7 +67,10 @@ function Nav() {
           >
             Login
           </Link>
-          <Link to='/register' className="btn bg-gray-900 hover:bg-gray-600 text-white">
+          <Link
+            to="/register"
+            className="btn bg-gray-900 hover:bg-gray-600 text-white"
+          >
             Register
           </Link>
         </div>
