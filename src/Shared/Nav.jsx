@@ -13,16 +13,16 @@ function Nav() {
 
   const link = (
     <>
-      <NavLink className="pr-6 font-semibold" to="/">
+      <NavLink to="/" className="pr-6 font-semibold" >
         Home
       </NavLink>
-      <NavLink className="pr-6 font-semibold" to="/allArtCraft">
+      <NavLink to="/allArtCraft" className="pr-6 font-semibold" >
         All Art&craft
       </NavLink>
-      <NavLink className="pr-6 font-semibold" to="/myArtCraft">
+      <NavLink to="/myArtCraft" className="pr-6 font-semibold" >
         My Art&Craft
       </NavLink>
-      <NavLink className="pr-6 font-semibold" to="/addCraft">
+      <NavLink to='/addArt' className="pr-6 font-semibold" >
         Add Craft
       </NavLink>
     </>
