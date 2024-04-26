@@ -10,9 +10,10 @@ import Swal from "sweetalert2";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
   const handleLogin = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -20,12 +21,31 @@ function Login() {
       .then((res) => {
         console.log(res.user);
         Swal.fire({
-          title: 'Login Successfully',
-          text: 'Do you want to continue',
-          icon: 'success',
-          confirmButtonText: 'Cool',
-          confirmButtonColor: "#111827"
-        })
+          title: "Login Successfully",
+          text: "Do you want to continue",
+          icon: "success",
+          confirmButtonText: "Cool",
+          confirmButtonColor: "#111827",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleGithubLogin = () => {
+    signInWithGithub()
+      .then((res) => {
+        console.log(res.user);
       })
       .catch((error) => {
         console.log(error);
@@ -106,18 +126,17 @@ function Login() {
                   </Link>
                 </p>
               </div>
-              <div className="divider py-3">OR</div>
-              <div className=" mt-4 flex flex-col gap-4 text-center ">
-                <button className="btn">
-                  <img className="w-6" src={google} alt="" /> Sign in with
-                  Google
-                </button>
-                <button className="btn">
-                  <img className="w-6" src={github} alt="" />
-                  Sign in with Github
-                </button>
-              </div>
             </form>
+            <div className="divider py-3">OR</div>
+            <div className=" mt-4 flex flex-col gap-4 text-center ">
+              <button onClick={handleGoogleLogin} className="btn">
+                <img className="w-6" src={google} alt="" /> Sign in with Google
+              </button>
+              <button onClick={handleGithubLogin} className="btn">
+                <img className="w-6" src={github} alt="" />
+                Sign in with Github
+              </button>
+            </div>
           </div>
         </div>
         <div className="col-span-1 relative">
