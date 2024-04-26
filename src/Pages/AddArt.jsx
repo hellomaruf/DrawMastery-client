@@ -1,5 +1,58 @@
+import { useContext } from "react";
+import { AuthContext } from "../Services/AuthProvider";
+import Swal from "sweetalert2";
+
 function AddArt() {
-  const handleAddedArt = () => {};
+  const { user } = useContext(AuthContext);
+  const handleAddedArt = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const itemName = form.item.value;
+    const subcategory = form.subcategory.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const time = form.time.value;
+    const photo = form.photo.value;
+    const description = form.description.value;
+    const customization = form.customization.value;
+    const stock = form.stock.value;
+    const userName = user?.displayName;
+    const userEmail = user?.email;
+    const artInfo = {
+      itemName,
+      subcategory,
+      price,
+      rating,
+      time,
+      photo,
+      description,
+      customization,
+      stock,
+      userName,
+      userEmail,
+    };
+    console.log(artInfo);
+    fetch("http://localhost:3000/art", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(artInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+          console.log(data);
+          if (data.insertedId) {
+            Swal.fire({
+                title: "Added Painting Successfully",
+                text: "Do you want to continue",
+                icon: "success",
+                confirmButtonText: "Cool",
+                confirmButtonColor: "#111827",
+              });
+          }
+      });
+  };
   return (
     <div className="max-w-7xl mx-auto">
       <form
@@ -61,7 +114,7 @@ function AddArt() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-6 gap-4 col-span-full ">
+          {/* <div className="grid grid-cols-6 gap-4 col-span-full ">
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="firstname" className="text-lg font-medium">
                 User Name
@@ -86,7 +139,7 @@ function AddArt() {
                 className="w-full rounded-md p-2 outline-none border "
               />
             </div>
-          </div>
+          </div> */}
           <div className="grid grid-cols-6 gap-4 col-span-full ">
             <div className="col-span-full ">
               <label htmlFor="firstname" className="text-lg font-medium">
@@ -100,6 +153,7 @@ function AddArt() {
                 className="w-full rounded-md  p-2 outline-none border"
               />
             </div>
+
             <div className="col-span-full ">
               <label htmlFor="firstname" className="text-lg font-medium">
                 Photo
@@ -111,13 +165,25 @@ function AddArt() {
                 placeholder="Enter Photo URL"
                 className="w-full rounded-md  p-2 outline-none border"
               />
+              <div className=" mt-5">
+                <label htmlFor="firstname" className="text-lg font-medium">
+                  Short Description
+                </label>
+                <input
+                  required
+                  name="description"
+                  type="text"
+                  placeholder="Enter a Short Description"
+                  className="w-full rounded-md  p-2 outline-none border"
+                />
+              </div>
               <div className="flex pt-6">
                 <h3 className="pr-5">customization</h3>
                 <div className="flex items-center me-4">
                   <input
-                    id="no"
+                    id="yes"
                     type="radio"
-                    value="no"
+                    value="yes"
                     name="customization"
                     className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 "
                   />
@@ -144,7 +210,7 @@ function AddArt() {
                   <input
                     id="stock"
                     type="radio"
-                    value="stock"
+                    value="In Stock"
                     name="stock"
                     className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 "
                   />
@@ -156,7 +222,7 @@ function AddArt() {
                   <input
                     id="stock"
                     type="radio"
-                    value="stock"
+                    value="Made to Order"
                     name="stock"
                     className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300  "
                   />
