@@ -4,8 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from "../Services/AuthProvider";
 
 function Nav() {
-  const { user } = useContext(AuthContext);
-  console.log(user.email);
+  const { user, signOutUser, setUser } = useContext(AuthContext);
+  console.log(user?.email);
+  const handleLogout = () => {
+    signOutUser();
+    setUser();
+  };
+
   const link = (
     <>
       <NavLink className="pr-6 font-semibold" to="/">
@@ -60,19 +65,46 @@ function Nav() {
             Draw<span className="font-light">Mastery</span>
           </a>
         </div>
-        <div className="navbar-end flex gap-4">
-          <Link
-            to="/login"
-            className="btn border-2 border-gray-900 hover:bg-gray-100 bg-white"
-          >
-            Login
-          </Link>
-          <Link
-            to="/register"
-            className="btn bg-gray-900 hover:bg-gray-600 text-white"
-          >
-            Register
-          </Link>
+        <div className="navbar-end ">
+          {user ? (
+            <>
+              <div className="flex gap-3 items-center">
+                <button
+                  onClick={handleLogout}
+                  className="btn bg-gray-900 hover:bg-gray-600 text-white"
+                >
+                  Logout
+                </button>
+                <div
+                  className="tooltip tooltip-bottom"
+                  data-tip={user?.displayName}
+                >
+                  <div className="avatar">
+                    <div className="w-12 rounded-full">
+                      <img src={user?.photoURL} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex gap-4">
+                <Link
+                  to="/login"
+                  className="btn border-2 border-gray-900 hover:bg-gray-100 bg-white"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="btn bg-gray-900 hover:bg-gray-600 text-white"
+                >
+                  Register
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

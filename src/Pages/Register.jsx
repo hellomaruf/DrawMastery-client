@@ -1,21 +1,20 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../assets/log1.jpg";
-
 import logo from "../assets/logo.png";
 import { AuthContext } from "../Services/AuthProvider";
 import Swal from "sweetalert2";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [passError, setPassError] = useState("");
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
-    // const name = form.name.value;
+    const name = form.name.value;
     const email = form.email.value;
-    // const photo = form.photo.value;
+    const photo = form.photo.value;
     const password = form.password.value;
     if (!/^.{6,}$/g.test(password)) {
       setPassError("Password must be at least 6 character");
@@ -31,6 +30,13 @@ function Register() {
     createUser(email, password)
       .then((res) => {
         console.log(res.user);
+        updateUserProfile(name, photo)
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         Swal.fire({
           title: "Register Successfully",
           text: "Do you want to continue",
