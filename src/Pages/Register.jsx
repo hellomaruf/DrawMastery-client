@@ -4,6 +4,7 @@ import img from "../assets/log1.jpg";
 import logo from "../assets/logo.png";
 import { AuthContext } from "../Services/AuthProvider";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -46,7 +47,8 @@ function Register() {
         });
       })
       .catch((error) => {
-        console.log(error);
+        const errorMsg = error.message;
+        toast.error(errorMsg);
       });
   };
 

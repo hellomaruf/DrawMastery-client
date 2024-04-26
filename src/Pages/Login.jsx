@@ -7,6 +7,7 @@ import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Services/AuthProvider";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,16 +30,25 @@ function Login() {
         });
       })
       .catch((error) => {
-        console.log(error);
+        const errorMsg = error.message;
+        toast.error(errorMsg);
       });
   };
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then((res) => {
         console.log(res.user);
+        Swal.fire({
+          title: "Login Successfully",
+          text: "Do you want to continue",
+          icon: "success",
+          confirmButtonText: "Cool",
+          confirmButtonColor: "#111827",
+        });
       })
       .catch((error) => {
-        console.log(error);
+        const errorMsg = error.message;
+        toast.error(errorMsg);
       });
   };
 
@@ -46,9 +56,17 @@ function Login() {
     signInWithGithub()
       .then((res) => {
         console.log(res.user);
+        Swal.fire({
+          title: "Login Successfully",
+          text: "Do you want to continue",
+          icon: "success",
+          confirmButtonText: "Cool",
+          confirmButtonColor: "#111827",
+        });
       })
       .catch((error) => {
-        console.log(error);
+        const errorMsg = error.message;
+        toast.error(errorMsg);
       });
   };
 
