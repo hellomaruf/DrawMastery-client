@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 function ArtCart({ art }) {
-  const {
+    const {
+      _id,
     itemName,
     subcategory,
     price,
@@ -34,9 +37,9 @@ function ArtCart({ art }) {
             </h2>
           </div>
           <div className="card-actions">
-            <button className="btn bg-gray-900 hover:bg-gray-600 text-white w-full rounded-xl">
+            <Link to={`/viewDetails/${_id}`} className="btn bg-gray-900 hover:bg-gray-600 text-white w-full rounded-xl">
               View Details
-            </button>
+            </Link>
           </div>
         </div>
       </div>

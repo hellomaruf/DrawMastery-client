@@ -5,6 +5,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import AddArt from "../Pages/AddArt";
+import ViewDetails from "../Pages/ViewDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,11 @@ export const router = createBrowserRouter([
       {
         path: "/addArt",
         element: <AddArt />,
+      },
+      {
+        path: "/viewDetails/:id",
+        element: <ViewDetails />,
+        loader: ({ params }) => fetch(`http://localhost:3000/art/${params.id}`),
       },
     ],
   },
