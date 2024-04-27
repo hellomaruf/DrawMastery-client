@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Services/AuthProvider";
+import { Link } from "react-router-dom";
 
 function MyArt() {
   const { user } = useContext(AuthContext);
@@ -75,9 +76,9 @@ function MyArt() {
                   </h2>
                 </div>
                 <div className=" flex gap-3">
-                  <button className="btn flex-1 bg-gray-900 hover:bg-gray-600 text-white  rounded-xl">
+                  <Link to='/updateArts' className="btn flex-1 bg-gray-900 hover:bg-gray-600 text-white  rounded-xl">
                     Update
-                  </button>
+                  </Link>
                   <button className="btn flex-1 bg-white border-2 border-gray-900 hover:bg-gray-200 text-gray-900  rounded-xl">
                     Delete
                   </button>

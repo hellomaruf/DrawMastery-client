@@ -9,6 +9,7 @@ import ViewDetails from "../Pages/ViewDetails";
 import PrivateRoute from "./PrivateRoute";
 import MyArt from "../Pages/MyArt";
 import AllArts from "../Pages/AllArts";
+import UpdateArts from "../Pages/UpdateArts";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
         path: '/allArts',
         element: <AllArts />,
         loader: () => fetch("http://localhost:3000/art"),
+      },
+      {
+        path: '/updateArts',
+        element: <UpdateArts/>
       }
     ],
   },
