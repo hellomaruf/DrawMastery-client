@@ -41,20 +41,26 @@ function AddArt() {
     })
       .then((res) => res.json())
       .then((data) => {
-          console.log(data);
-          if (data.insertedId) {
-            Swal.fire({
-                title: "Added Painting Successfully",
-                text: "Do you want to continue",
-                icon: "success",
-                confirmButtonText: "Cool",
-                confirmButtonColor: "#111827",
-              });
-          }
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Added Painting Successfully",
+            text: "Do you want to continue",
+            icon: "success",
+            confirmButtonText: "Cool",
+            confirmButtonColor: "#111827",
+          });
+        }
       });
   };
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto my-16">
+      <div className="text-center pb-8 ">
+        <h2 className="font-right text-3xl">Add Painting and Drawing</h2>
+        <p className="py-2">
+        Painting is easy when you don’t know how, but very difficult when you do
+        </p>
+      </div>
       <form
         onSubmit={handleAddedArt}
         noValidate=""

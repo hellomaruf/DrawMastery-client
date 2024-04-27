@@ -8,8 +8,7 @@ function AllArts() {
       <div className="text-center pb-8">
         <h2 className="font-right text-3xl">All Painting and Drawing</h2>
         <p className="py-2">
-          Art is a collaboration between God and the artist, and the less the
-          artist does the better
+        Art enables us to find ourselves and lose ourselves at the same time
         </p>
       </div>
       <div className="overflow-x-auto">

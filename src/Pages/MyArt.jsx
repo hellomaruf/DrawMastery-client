@@ -11,7 +11,6 @@ function MyArt() {
         setMyAry(data);
       });
   }, []);
-  console.log(myArt);
   return (
     <div className="max-w-7xl mx-auto my-16">
       <div className="text-center pb-8">
@@ -21,6 +20,30 @@ function MyArt() {
           artist does the better
         </p>
       </div>
+
+      <div className="dropdown dropdown-hover mb-12">
+        <div
+          tabIndex={0}
+          role="button"
+          className="btn m-1 bg-gray-900 hover:bg-gray-700 text-white"
+        >
+          <i className="ri-filter-3-fill text-xl"></i>
+          Filter
+          <i className="ri-arrow-down-s-line"></i>
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content bg-gray-900 text-white border-2 border-white z-[1] menu p-2 shadow  rounded-box w-52"
+        >
+          <li className=" border-b">
+            <a>Yes</a>
+          </li>
+          <li>
+            <a>No</a>
+          </li>
+        </ul>
+      </div>
+
       <div className="grid grid-cols-3 gap-6">
         {myArt.map((item, index) => (
           <div key={index} className="">
@@ -41,6 +64,7 @@ function MyArt() {
               <div className="py-4 px-4 items-center space-y-2 ">
                 <h4 className="font-semibold text-gray-400">{item?.stock}</h4>
                 <h2 className="card-title">{item?.subcategory}</h2>
+                <h3>Customization : {item?.customization}</h3>
                 <div className=" flex justify-between items-center py-2">
                   <h2 className="text-2xl font-bold text-[#FF00D3]">
                     {item?.price}
