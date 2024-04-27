@@ -19,7 +19,7 @@ function Nav() {
       <NavLink to="/allArtCraft" className="pr-6 font-semibold" >
         All Art&craft
       </NavLink>
-      <NavLink to="/myArtCraft" className="pr-6 font-semibold" >
+      <NavLink to="/myArt" className="pr-6 font-semibold" >
         My Art&Craft
       </NavLink>
       <NavLink to='/addArt' className="pr-6 font-semibold" >

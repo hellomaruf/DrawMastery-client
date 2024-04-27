@@ -7,6 +7,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import AddArt from "../Pages/AddArt";
 import ViewDetails from "../Pages/ViewDetails";
 import PrivateRoute from "./PrivateRoute";
+import MyArt from "../Pages/MyArt";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +43,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => fetch(`http://localhost:3000/art/${params.id}`),
+      },
+      {
+        path: "/myArt",
+        element: (
+          <PrivateRoute>
+            <MyArt />
+          </PrivateRoute>
+        ),
       },
     ],
   },
