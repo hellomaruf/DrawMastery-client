@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Services/AuthProvider";
 
 function ViewDetails() {
   const loadedArt = useLoaderData();
+  const { user } = useContext(AuthContext);
   const {
     itemName,
     subcategory,
@@ -14,7 +17,9 @@ function ViewDetails() {
     stock,
     userName,
     userEmail,
-  } = loadedArt;
+    } = loadedArt;
+    
+    
   return (
     <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-2 gap-10">
@@ -55,7 +60,7 @@ function ViewDetails() {
             <div className="flex items-center gap-4 mt-7">
               <div className="avatar">
                 <div className="w-16 rounded-full">
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img src={user?.photoURL} />
                 </div>
               </div>
               <div className="">

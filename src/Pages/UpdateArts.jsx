@@ -1,9 +1,69 @@
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+
 function UpdateArts() {
-  const handleUpdateArt = () => {};
+  const loadedArt = useLoaderData();
+  const {
+    _id,
+    itemName,
+    subcategory,
+    price,
+    rating,
+    time,
+    photo,
+    description,
+  } = loadedArt;
+  const handleUpdateArt = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const itemName = form.item.value;
+    const subcategory = form.subcategory.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const time = form.time.value;
+    const photo = form.photo.value;
+    const description = form.description.value;
+    const customization = form.customization.value;
+    const stock = form.stock.value;
+    const artInfo = {
+      itemName,
+      subcategory,
+      price,
+      rating,
+      time,
+      photo,
+      description,
+      customization,
+      stock,
+    };
+
+    fetch(`http://localhost:3000/updateArts/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(artInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount === 1) {
+          Swal.fire({
+            title: "Added Painting Successfully",
+            text: "Do you want to continue",
+            icon: "success",
+            confirmButtonText: "Cool",
+            confirmButtonColor: "#111827",
+          });
+        }
+      });
+  };
   return (
     <div className="max-w-7xl mx-auto my-16">
       <div className="text-center pb-8 ">
-        <h2 className="font-right text-3xl">Update your Painting and Drawing</h2>
+        <h2 className="font-right text-3xl">
+          Update your Painting and Drawing
+        </h2>
         <p className="py-2">
           Painting is easy when you don’t know how, but very difficult when you
           do
@@ -23,6 +83,7 @@ function UpdateArts() {
               </label>
               <input
                 required
+                defaultValue={itemName}
                 name="item"
                 type="text"
                 placeholder="Enter Item name"
@@ -35,6 +96,7 @@ function UpdateArts() {
               </label>
               <input
                 required
+                defaultValue={subcategory}
                 name="subcategory"
                 type="text"
                 placeholder="Enter Subcategory Name"
@@ -49,6 +111,7 @@ function UpdateArts() {
               </label>
               <input
                 required
+                defaultValue={price}
                 name="price"
                 type="text"
                 placeholder="Enter Price"
@@ -61,6 +124,7 @@ function UpdateArts() {
               </label>
               <input
                 required
+                defaultValue={rating}
                 name="rating"
                 type="text"
                 placeholder="Enter Rating"
@@ -76,6 +140,7 @@ function UpdateArts() {
               </label>
               <input
                 required
+                defaultValue={time}
                 name="time"
                 type="time"
                 placeholder="Enter Photo URL"
@@ -89,6 +154,7 @@ function UpdateArts() {
               </label>
               <input
                 required
+                defaultValue={photo}
                 name="photo"
                 type="text"
                 placeholder="Enter Photo URL"
@@ -100,6 +166,7 @@ function UpdateArts() {
                 </label>
                 <input
                   required
+                  defaultValue={description}
                   name="description"
                   type="text"
                   placeholder="Enter a Short Description"

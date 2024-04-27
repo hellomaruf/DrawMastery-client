@@ -55,14 +55,20 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/allArts',
+        path: "/allArts",
         element: <AllArts />,
         loader: () => fetch("http://localhost:3000/art"),
       },
       {
-        path: '/updateArts',
-        element: <UpdateArts/>
-      }
+        path: "/updateArts/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateArts />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/updateArts/${params.id}`),
+      },
     ],
   },
 ]);

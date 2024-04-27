@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 function MyArt() {
   const { user } = useContext(AuthContext);
-  const [myArt, setMyAry] = useState([]);
+  const [myArt, setMyArt] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:3000/myArt/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setMyAry(data);
+        setMyArt(data);
       });
   }, []);
   return (
@@ -76,7 +76,10 @@ function MyArt() {
                   </h2>
                 </div>
                 <div className=" flex gap-3">
-                  <Link to='/updateArts' className="btn flex-1 bg-gray-900 hover:bg-gray-600 text-white  rounded-xl">
+                  <Link
+                    to={`/updateArts/${item?._id}`}
+                    className="btn flex-1 bg-gray-900 hover:bg-gray-600 text-white  rounded-xl"
+                  >
                     Update
                   </Link>
                   <button className="btn flex-1 bg-white border-2 border-gray-900 hover:bg-gray-200 text-gray-900  rounded-xl">
