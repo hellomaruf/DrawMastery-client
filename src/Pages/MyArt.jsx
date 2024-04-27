@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Services/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function MyArt() {
   const { user } = useContext(AuthContext);
@@ -12,6 +13,37 @@ function MyArt() {
         setMyArt(data);
       });
   }, []);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Do you really want to Delete?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#030712",
+      cancelButtonColor: "#ff00d3",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/updateArts/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            const remaining = myArt.filter((art) => art?._id !== id);
+            setMyArt(remaining);
+            Swal.fire({
+              title: "Deleted Painting Successfully",
+              text: "Do you want to continue",
+              icon: "success",
+              confirmButtonText: "Cool",
+              confirmButtonColor: "#111827",
+            });
+          });
+      }
+    });
+  };
   return (
     <div className="max-w-7xl mx-auto my-16">
       <div className="text-center pb-8">
@@ -82,7 +114,10 @@ function MyArt() {
                   >
                     Update
                   </Link>
-                  <button className="btn flex-1 bg-white border-2 border-gray-900 hover:bg-gray-200 text-gray-900  rounded-xl">
+                  <button
+                    onClick={() => handleDelete(item?._id)}
+                    className="btn flex-1 bg-white border-2 border-gray-900 hover:bg-gray-200 text-gray-900  rounded-xl"
+                  >
                     Delete
                   </button>
                 </div>
