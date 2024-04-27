@@ -14,6 +14,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("http://localhost:3000/art"),
       },
       {
         path: "/login",
@@ -24,9 +25,9 @@ export const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: '/addArt',
-        element : <AddArt/>
-      }
+        path: "/addArt",
+        element: <AddArt />,
+      },
     ],
   },
 ]);

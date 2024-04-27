@@ -1,11 +1,26 @@
+import { useLoaderData } from "react-router-dom";
 import Collections from "../components/Collections";
 import Hero from "../components/Hero";
+import ArtCart from "../components/ArtCart";
 
 function Home() {
+  const loadedArt = useLoaderData();
+  console.log(loadedArt);
+  const art = loadedArt.slice(0, 6)
   return (
     <div>
       <Hero />
-      <Collections/>
+      <Collections />
+      <div className=" mt-36">
+        <div className="text-center pb-12">
+          <h2 className="font-right text-3xl">Popular Paintings</h2>
+        </div>
+        <div className="grid grid-cols-3 max-w-7xl mx-auto gap-6">
+          {art.map((item, index) => (
+            <ArtCart key={index} art={item} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
