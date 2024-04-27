@@ -2,11 +2,11 @@ import { useLoaderData } from "react-router-dom";
 import Collections from "../components/Collections";
 import Hero from "../components/Hero";
 import ArtCart from "../components/ArtCart";
+import ArtCategory from "../components/ArtCategory";
 
 function Home() {
   const loadedArt = useLoaderData();
-  console.log(loadedArt);
-  const art = loadedArt.slice(0, 6)
+  const art = loadedArt.slice(0, 6);
   return (
     <div>
       <Hero />
@@ -21,6 +21,7 @@ function Home() {
           ))}
         </div>
       </div>
+      <ArtCategory />
     </div>
   );
 }
