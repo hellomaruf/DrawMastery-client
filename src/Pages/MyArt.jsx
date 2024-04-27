@@ -13,7 +13,14 @@ function MyArt() {
   }, []);
   console.log(myArt);
   return (
-    <div className="max-w-7xl mx-auto my-10">
+    <div className="max-w-7xl mx-auto my-16">
+      <div className="text-center pb-8">
+        <h2 className="font-right text-3xl">My Painting and Drawing</h2>
+        <p className="py-2">
+          Art is a collaboration between God and the artist, and the less the
+          artist does the better
+        </p>
+      </div>
       <div className="grid grid-cols-3 gap-6">
         {myArt.map((item, index) => (
           <div key={index} className="">

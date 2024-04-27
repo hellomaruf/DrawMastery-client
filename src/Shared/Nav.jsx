@@ -16,7 +16,7 @@ function Nav() {
       <NavLink to="/" className="pr-6 font-semibold" >
         Home
       </NavLink>
-      <NavLink to="/allArtCraft" className="pr-6 font-semibold" >
+      <NavLink to="/allArts" className="pr-6 font-semibold" >
         All Art&craft
       </NavLink>
       <NavLink to="/myArt" className="pr-6 font-semibold" >

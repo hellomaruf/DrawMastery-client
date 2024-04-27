@@ -8,6 +8,7 @@ import AddArt from "../Pages/AddArt";
 import ViewDetails from "../Pages/ViewDetails";
 import PrivateRoute from "./PrivateRoute";
 import MyArt from "../Pages/MyArt";
+import AllArts from "../Pages/AllArts";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +53,11 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: '/allArts',
+        element: <AllArts />,
+        loader: () => fetch("http://localhost:3000/art"),
+      }
     ],
   },
 ]);
