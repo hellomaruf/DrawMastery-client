@@ -6,6 +6,7 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import AddArt from "../Pages/AddArt";
 import ViewDetails from "../Pages/ViewDetails";
+import PrivateRoute from "./PrivateRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -27,7 +28,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addArt",
-        element: <AddArt />,
+        element: (
+          <PrivateRoute>
+            <AddArt />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/viewDetails/:id",

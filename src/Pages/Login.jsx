@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../assets/log1.jpg";
 import google from "../assets/google.png";
 import github from "../assets/github.png";
@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 
 function Login() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { signInUser, signInWithGoogle, signInWithGithub } =
     useContext(AuthContext);
@@ -21,6 +23,8 @@ function Login() {
     signInUser(email, password)
       .then((res) => {
         console.log(res.user);
+        navigate(location?.state ? location.state : "/");
+
         Swal.fire({
           title: "Login Successfully",
           text: "Do you want to continue",
@@ -38,6 +42,8 @@ function Login() {
     signInWithGoogle()
       .then((res) => {
         console.log(res.user);
+        navigate(location?.state ? location.state : "/");
+
         Swal.fire({
           title: "Login Successfully",
           text: "Do you want to continue",
@@ -56,6 +62,8 @@ function Login() {
     signInWithGithub()
       .then((res) => {
         console.log(res.user);
+        navigate(location?.state ? location.state : "/");
+
         Swal.fire({
           title: "Login Successfully",
           text: "Do you want to continue",
