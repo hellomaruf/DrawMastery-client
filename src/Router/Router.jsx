@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/art"),
+        loader: () => fetch("https://draw-mastery-server.vercel.app/art"),
       },
       {
         path: "/login",
@@ -45,7 +45,8 @@ export const router = createBrowserRouter([
             <ViewDetails />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3000/art/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://draw-mastery-server.vercel.app/art/${params.id}`),
       },
       {
         path: "/myArt",
@@ -58,7 +59,7 @@ export const router = createBrowserRouter([
       {
         path: "/allArts",
         element: <AllArts />,
-        loader: () => fetch("http://localhost:3000/art"),
+        loader: () => fetch("https://draw-mastery-server.vercel.app/art"),
       },
       {
         path: "/updateArts/:id",
@@ -68,12 +69,17 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/updateArts/${params.id}`),
+          fetch(
+            `https://draw-mastery-server.vercel.app/updateArts/${params.id}`
+          ),
       },
       {
         path: "/category/:name",
         element: <Category />,
-        loader: ({params})=>fetch(`http://localhost:3000/artCategory/${params.name}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://draw-mastery-server.vercel.app/artCategory/${params.name}`
+          ),
       },
     ],
   },

@@ -37,7 +37,7 @@ function UpdateArts() {
       stock,
     };
 
-    fetch(`http://localhost:3000/updateArts/${_id}`, {
+    fetch(`https://draw-mastery-server.vercel.app/updateArts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

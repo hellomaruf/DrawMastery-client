@@ -7,7 +7,7 @@ function MyArt() {
   const { user } = useContext(AuthContext);
   const [myArt, setMyArt] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/myArt/${user?.email}`)
+    fetch(`https://draw-mastery-server.vercel.app/myArt/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyArt(data);
@@ -25,7 +25,7 @@ function MyArt() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/updateArts/${id}`, {
+        fetch(`https://draw-mastery-server.vercel.app/updateArts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

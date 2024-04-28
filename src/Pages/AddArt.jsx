@@ -32,7 +32,7 @@ function AddArt() {
       userEmail,
     };
     console.log(artInfo);
-    fetch("http://localhost:3000/art", {
+    fetch("https://draw-mastery-server.vercel.app/art", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,7 +58,8 @@ function AddArt() {
       <div className="text-center pb-8 ">
         <h2 className="font-right text-3xl">Add Painting and Drawing</h2>
         <p className="py-2">
-        Painting is easy when you don’t know how, but very difficult when you do
+          Painting is easy when you don’t know how, but very difficult when you
+          do
         </p>
       </div>
       <form
