@@ -5,12 +5,26 @@ import Swal from "sweetalert2";
 
 function MyArt() {
   const { user } = useContext(AuthContext);
+  const [displayArts, setDisplayArts] = useState([]);
   const [myArt, setMyArt] = useState([]);
+
+  const handleArtsFilter = (filter) => {
+    if (filter === "all") {
+      setDisplayArts(myArt);
+    } else if (filter === "yes") {
+      const artsYes = myArt.filter((arts) => arts.customization === "yes");
+      setDisplayArts(artsYes);
+    } else if (filter === "no") {
+      const artsNo = myArt.filter((arts) => arts.customization === "no");
+      setDisplayArts(artsNo);
+    }
+  };
   useEffect(() => {
     fetch(`https://draw-mastery-server.vercel.app/myArt/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyArt(data);
+        setDisplayArts(data);
       });
   }, []);
 
@@ -33,6 +47,7 @@ function MyArt() {
             console.log(data);
             const remaining = myArt.filter((art) => art?._id !== id);
             setMyArt(remaining);
+            setDisplayArts(remaining);
             Swal.fire({
               title: "Deleted Painting Successfully",
               text: "Do you want to continue",
@@ -68,17 +83,20 @@ function MyArt() {
           tabIndex={0}
           className="dropdown-content bg-gray-900 text-white border-2 border-white z-[1] menu p-2 shadow  rounded-box w-52"
         >
-          <li className=" border-b">
+          <li onClick={() => handleArtsFilter("all")} className=" border-b">
+            <a>All</a>
+          </li>
+          <li onClick={() => handleArtsFilter("yes")} className=" border-b">
             <a>Yes</a>
           </li>
-          <li>
+          <li onClick={() => handleArtsFilter("no")}>
             <a>No</a>
           </li>
         </ul>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
-        {myArt.map((item, index) => (
+        {displayArts.map((item, index) => (
           <div key={index} className="">
             <div className="rounded-3xl  bg-base-100 border-4 border-gray-900 shadow-md">
               <figure className="w-full bg-gray-900 rounded-xl relative">
