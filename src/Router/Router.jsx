@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyArt from "../Pages/MyArt";
 import AllArts from "../Pages/AllArts";
 import UpdateArts from "../Pages/UpdateArts";
+import Category from "../Pages/Category";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +69,11 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/updateArts/${params.id}`),
+      },
+      {
+        path: "/category/:name",
+        element: <Category />,
+        loader: ({params})=>fetch(`http://localhost:3000/artCategory/${params.name}`)
       },
     ],
   },
