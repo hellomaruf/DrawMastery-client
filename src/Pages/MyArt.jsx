@@ -9,9 +9,7 @@ function MyArt() {
   const [myArt, setMyArt] = useState([]);
 
   const handleArtsFilter = (filter) => {
-    if (filter === "all") {
-      setDisplayArts(myArt);
-    } else if (filter === "yes") {
+    if (filter === "yes") {
       const artsYes = myArt.filter((arts) => arts.customization === "yes");
       setDisplayArts(artsYes);
     } else if (filter === "no") {
@@ -83,9 +81,7 @@ function MyArt() {
           tabIndex={0}
           className="dropdown-content bg-gray-900 text-white border-2 border-white z-[1] menu p-2 shadow  rounded-box w-52"
         >
-          <li onClick={() => handleArtsFilter("all")} className=" border-b">
-            <a>All</a>
-          </li>
+          
           <li onClick={() => handleArtsFilter("yes")} className=" border-b">
             <a>Yes</a>
           </li>

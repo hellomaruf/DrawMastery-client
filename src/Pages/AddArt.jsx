@@ -7,7 +7,7 @@ function AddArt() {
   const handleAddedArt = (e) => {
     e.preventDefault();
     const form = e.target;
-    const itemName = form.item.value;
+    const itemName = form.itemName.value;
     const subcategory = form.subcategory.value;
     const price = form.price.value;
     const rating = form.rating.value;
@@ -18,6 +18,7 @@ function AddArt() {
     const stock = form.stock.value;
     const userName = user?.displayName;
     const userEmail = user?.email;
+    console.log(itemName);
     const artInfo = {
       itemName,
       subcategory,
@@ -71,7 +72,7 @@ function AddArt() {
         <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm  border-2 bg-gray-50 border-gray-900">
           <div className="grid grid-cols-6 gap-4 col-span-full ">
             <div className="col-span-full sm:col-span-3">
-              <label htmlFor="firstname" className="text-lg font-medium">
+              {/* <label htmlFor="firstname" className="text-lg font-medium">
                 Item Name
               </label>
               <input
@@ -80,7 +81,22 @@ function AddArt() {
                 type="text"
                 placeholder="Enter Item name"
                 className="w-full rounded-md  p-2 outline-none border"
-              />
+              /> */}
+              <label htmlFor="firstname" className="text-lg font-medium">
+                Item Name
+              </label>
+              <select
+                className="w-full rounded-md  p-2 outline-none border"
+                name="itemName"
+                id="cars"
+              >
+                <option value="Landscape Painting">Landscape Painting</option>
+                <option value="Portrait Drawing">Portrait Drawing</option>
+                <option value="Watercolour Painting">Watercolour Painting</option>
+                <option value="Oil Painting">Oil Painting</option>
+                <option value="Charcoal Sketching">Charcoal Sketching</option>
+                <option value="Cartoon Drawing">Cartoon Drawing</option>
+              </select>
             </div>
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="lastname" className="text-lg font-medium">
@@ -121,13 +137,15 @@ function AddArt() {
               />
             </div>
           </div>
-          {/* <div className="grid grid-cols-6 gap-4 col-span-full ">
+          <div className="grid grid-cols-6 gap-4 col-span-full ">
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="firstname" className="text-lg font-medium">
                 User Name
               </label>
               <input
                 required
+                disabled
+                defaultValue={user?.displayName}
                 name="name"
                 type="text"
                 placeholder="Enter Coffee Category"
@@ -140,13 +158,15 @@ function AddArt() {
               </label>
               <input
                 required
+                disabled
+                defaultValue={user?.email}
                 name="details"
                 type="email"
                 placeholder="Enter Coffee Details"
                 className="w-full rounded-md p-2 outline-none border "
               />
             </div>
-          </div> */}
+          </div>
           <div className="grid grid-cols-6 gap-4 col-span-full ">
             <div className="col-span-full ">
               <label htmlFor="firstname" className="text-lg font-medium">
