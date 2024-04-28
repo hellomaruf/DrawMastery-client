@@ -1,9 +1,14 @@
 import logo from "../assets/logo.png";
+import footer from "../assets/footer.svg";
 
 function Footer() {
   return (
     <div className="pt-10">
-      <div className="bg-gray-950 z-10">
+      <div
+        style={{
+          backgroundImage: `url(${footer})`,}}
+        className="bg-gray-950 z-10 w-full bg-cover"
+      >
         <footer className="footer p-10 py-24 text-base-content max-w-7xl mx-auto">
           <aside className="max-w-sm">
             <div className="flex gap-2">

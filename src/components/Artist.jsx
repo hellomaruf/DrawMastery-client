@@ -22,7 +22,7 @@ function Artist() {
           </button>
         </div>
         <div className="col-span-4">
-          <Marquee gradient gradientWidth={200} gradientColor="white" pauseOnHover>
+          <Marquee gradient gradientWidth={200} gradientColor='white' pauseOnHover>
             <div className="flex ">
               <div className=" border-4 mx-2 flex flex-col  items-center border-gray-900 rounded-2xl p-10">
                 <img className="w-28 rounded-full" src={artist1} alt="" />
