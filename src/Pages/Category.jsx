@@ -30,6 +30,8 @@ function Category() {
                   {item?.stockStatus}
                 </h4>
                 <h2 className="card-title">{item?.subcategory_Name}</h2>
+                        <p>{item?.short_description}</p>
+                        <div className=" font-semibold text-lg"> <i className="ri-time-line pr-2 "></i>{ item?.processing_time}</div>
                 <div className=" flex justify-between items-center py-2">
                   <h2 className="text-2xl font-bold text-[#FF00D3]">
                     {item?.price}
@@ -40,7 +42,10 @@ function Category() {
                   </h2>
                 </div>
                 <div className="card-actions">
-                  <Link className="btn bg-gray-900 hover:bg-gray-600 text-white w-full rounded-xl">
+                  <Link
+                    to={`/artCategory/${item?._id}`}
+                    className="btn bg-gray-900 hover:bg-gray-600 text-white w-full rounded-xl"
+                  >
                     View Details
                   </Link>
                 </div>

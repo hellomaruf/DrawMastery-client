@@ -11,6 +11,7 @@ import MyArt from "../Pages/MyArt";
 import AllArts from "../Pages/AllArts";
 import UpdateArts from "../Pages/UpdateArts";
 import Category from "../Pages/Category";
+import CategoryDetails from "../Pages/CategoryDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -79,6 +80,14 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(
             `https://draw-mastery-server.vercel.app/artCategory/${params.name}`
+          ),
+      },
+      {
+        path: "/artCategory/:id",
+        element: <CategoryDetails />,
+        loader: ({ params }) =>
+          fetch(
+            `https://draw-mastery-server.vercel.app/categoryDetails/${params.id}`
           ),
       },
     ],

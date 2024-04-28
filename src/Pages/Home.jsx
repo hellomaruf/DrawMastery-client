@@ -3,6 +3,7 @@ import Collections from "../components/Collections";
 import Hero from "../components/Hero";
 import ArtCart from "../components/ArtCart";
 import ArtCategory from "../components/ArtCategory";
+import Artist from "../components/Artist";
 
 function Home() {
   const loadedArt = useLoaderData();
@@ -22,6 +23,7 @@ function Home() {
         </div>
       </div>
       <ArtCategory />
+      <Artist />
     </div>
   );
 }
