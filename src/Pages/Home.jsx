@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import ArtCart from "../components/ArtCart";
 import ArtCategory from "../components/ArtCategory";
 import Artist from "../components/Artist";
+import FAQs from "../components/FAQs";
 
 function Home() {
   const loadedArt = useLoaderData();
@@ -24,6 +25,7 @@ function Home() {
       </div>
       <ArtCategory />
       <Artist />
+      <FAQs/>
     </div>
   );
 }
