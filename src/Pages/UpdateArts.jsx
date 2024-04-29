@@ -232,7 +232,7 @@ function UpdateArts() {
 
             <div className=" ">
               <input
-                className="bg-gray-900 btn text-white  mt-8 py-2 font-bold  rounded-lg"
+                className="bg-gray-900 hover:bg-gray-700 btn text-white  mt-8 py-2 font-bold  rounded-lg"
                 type="submit"
                 value="Update Art"
               />

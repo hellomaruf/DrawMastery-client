@@ -11,7 +11,7 @@ function Category() {
       <div className="grid grid-cols-1 md:grid-cols-2 mx-6 lg:mx-3 lg:grid-cols-3 gap-6 ">
         {loadedCategory.map((item, index) => (
           <div key={index}>
-            <div className="rounded-3xl  bg-base-100 border-4 border-gray-900 shadow-md">
+            <div className="rounded-3xl  bg-base-100 border-4 border-gray-900 h-full shadow-md">
               <figure className="w-full bg-gray-900 rounded-xl relative">
                 <img
                   src={item?.image}
@@ -30,8 +30,12 @@ function Category() {
                   {item?.stockStatus}
                 </h4>
                 <h2 className="card-title">{item?.subcategory_Name}</h2>
-                        <p>{item?.short_description}</p>
-                        <div className=" font-semibold text-lg"> <i className="ri-time-line pr-2 "></i>{ item?.processing_time}</div>
+                <p>{item?.short_description}</p>
+                <div className=" font-semibold text-lg">
+                  {" "}
+                  <i className="ri-time-line pr-2 "></i>
+                  {item?.processing_time}
+                </div>
                 <div className=" flex justify-between items-center py-2">
                   <h2 className="text-2xl font-bold text-[#FF00D3]">
                     {item?.price}

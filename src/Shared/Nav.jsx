@@ -26,17 +26,37 @@ function Nav() {
 
   const link = (
     <>
-      <NavLink to="/" className="pr-6 font-semibold">
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? "underline pr-6 font-semibold" : "pr-6"
+        }
+      >
         Home
       </NavLink>
-      <NavLink to="/allArts" className="pr-6 font-semibold">
-        All Art&craft
+      <NavLink
+        to="/allArts"
+        className={({ isActive }) =>
+          isActive ? "underline pr-6 font-semibold" : "pr-6"
+        }
+      >
+        All Paintings
       </NavLink>
-      <NavLink to="/myArt" className="pr-6 font-semibold">
-        My Art&Craft
+      <NavLink
+        to="/myArt"
+        className={({ isActive }) =>
+          isActive ? "underline pr-6 font-semibold" : "pr-6"
+        }
+      >
+        My Paintings
       </NavLink>
-      <NavLink to="/addArt" className="pr-6 font-semibold">
-        Add Craft
+      <NavLink
+        to="/addArt"
+        className={({ isActive }) =>
+          isActive ? "underline pr-6 font-semibold" : "pr-6"
+        }
+      >
+        Add Arts
       </NavLink>
     </>
   );
