@@ -3,15 +3,15 @@ import qus from "../assets/qus.json";
 
 function FAQs() {
   return (
-    <div className="max-w-7xl mx-auto mt-36">
+    <div className="max-w-7xl mx-auto mt-24 lg:mt-36 mb-8">
       <div className="text-center pb-8">
         <h2 className="font-right text-3xl">FAQ,s</h2>
       </div>
-      <div className="grid grid-cols-2 gap-4 items-center justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center justify-center">
         <div className="col-span-1 ">
           <Lottie animationData={qus} loop={true}></Lottie>
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 mx-6 lg:mx-3">
           <div className="join join-vertical w-full">
             <div className="collapse collapse-arrow join-item border border-base-300">
               <input type="radio" name="my-accordion-4" defaultChecked />

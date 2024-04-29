@@ -91,10 +91,10 @@ function MyArt() {
         </ul>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-6 lg:mx-3 gap-6">
         {displayArts.map((item, index) => (
           <div key={index} className="">
-            <div className="rounded-3xl  bg-base-100 border-4 border-gray-900 shadow-md">
+            <div className="rounded-3xl  bg-base-100 border-4 border-gray-900 h-full shadow-md">
               <figure className="w-full bg-gray-900 rounded-xl relative">
                 <img
                   src={item?.photo}

@@ -56,13 +56,14 @@ function AddArt() {
   };
   return (
     <div className="max-w-7xl mx-auto my-16">
-      <div className="text-center pb-8 ">
+      <div className="text-center pb-8 mx-6 lg:mx-3">
         <h2 className="font-right text-3xl">Add Painting and Drawing</h2>
         <p className="py-2">
           Painting is easy when you don’t know how, but very difficult when you
           do
         </p>
       </div>
+      <div className="mx-6 lg:mx-3">
       <form
         onSubmit={handleAddedArt}
         noValidate=""
@@ -260,9 +261,9 @@ function AddArt() {
               </div>
             </div>
 
-            <div className=" w-full">
+            <div className="">
               <input
-                className="bg-gray-900 text-white w-full mt-8 py-2 font-bold  rounded-lg"
+                className="bg-gray-900 btn text-white  mt-8 py-2 font-bold  rounded-lg"
                 type="submit"
                 value="Add a Art"
               />
@@ -270,6 +271,7 @@ function AddArt() {
           </div>
         </fieldset>
       </form>
+     </div>
     </div>
   );
 }

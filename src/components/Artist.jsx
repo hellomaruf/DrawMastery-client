@@ -6,12 +6,12 @@ import artist4 from "../assets/artist4.png";
 
 function Artist() {
   return (
-    <div className="max-w-7xl mx-auto my-10 mt-40">
-      <div className="grid grid-cols-6 gap-8">
-        <div className="col-span-2">
+    <div className="max-w-7xl mx-auto my-10 mt-24 lg:mt-36">
+      <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
+        <div className="col-span-1 lg:col-span-2 mx-6 lg:mx-3">
           <p className="text-xl text-[#FF00D3] py-2">Popular Artist</p>
-          <h1 className="text-5xl font-right">Follow & Collect they Art!</h1>
-          <p className="my-6">
+          <h1 className="text-4xl lg:text-5xl font-right">Follow & Collect they Art!</h1>
+          <p className="my-6 text-sm lg:text-base">
             To my mind a picture should be something pleasant, cheerful and
             pretty. There are too many unpleasant things in life as it is,
             without creating still more of them.
@@ -21,8 +21,8 @@ function Artist() {
             Explore More
           </button>
         </div>
-        <div className="col-span-4">
-          <Marquee gradient gradientWidth={200} gradientColor='white' pauseOnHover>
+        <div className="col-span-1 lg:col-span-4">
+          <Marquee gradient gradientWidth={100} gradientColor='white' pauseOnHover>
             <div className="flex ">
               <div className=" border-4 mx-2 flex flex-col  items-center border-gray-900 rounded-2xl p-10">
                 <img className="w-28 rounded-full" src={artist1} alt="" />

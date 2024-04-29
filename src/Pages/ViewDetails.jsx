@@ -22,8 +22,8 @@ function ViewDetails() {
     
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="grid grid-cols-2 gap-10">
-        <div className="col-span-1 p-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2  lg:gap-10 mx-6 lg:mx-3">
+        <div className="col-span-1 lg:p-10">
           <img className="w-full  rounded-xl" src={photo} alt="" />
         </div>
         <div className="col-span-1 py-10">

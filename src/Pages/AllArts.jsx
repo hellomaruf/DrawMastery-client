@@ -17,9 +17,9 @@ function AllArts() {
           <thead>
             <tr>
               <th></th>
-              <th className="text-[#FF00D3]">Item Name</th>
+              <th className="text-[#FF00D3] hidden lg:block">Item Name</th>
               <th className="text-[#FF00D3]">Subcategory Name</th>
-              <th className="text-[#FF00D3]">Stock</th>
+              <th className="text-[#FF00D3] hidden lg:block">Stock</th>
               <th className="text-[#FF00D3]">Price</th>
               <th></th>
             </tr>
@@ -28,9 +28,9 @@ function AllArts() {
             <tbody key={index}>
               <tr className="hover">
                 <th>{count++}</th>
-                <td>{item?.itemName}</td>
+                <td className=" hidden lg:block">{item?.itemName}</td>
                 <td>{item?.subcategory}</td>
-                <td>{item?.stock}</td>
+                <td className=" hidden lg:block">{item?.stock}</td>
                 <td>{item?.price}</td>
                 <td>
                   <Link to={`/viewDetails/${item?._id}`} className="btn  bg-white border-2 border-gray-900 hover:bg-gray-200 text-gray-900  rounded-xl">

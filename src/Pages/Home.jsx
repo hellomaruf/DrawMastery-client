@@ -13,19 +13,21 @@ function Home() {
     <div>
       <Hero />
       <Collections />
-      <div className=" mt-36">
+      <div className=" mt-24 lg:mt-36">
         <div className="text-center pb-12">
           <h2 className="font-right text-3xl">Popular Paintings</h2>
         </div>
-        <div className="grid grid-cols-3 max-w-7xl mx-auto gap-6">
-          {art.map((item, index) => (
-            <ArtCart key={index} art={item} />
-          ))}
+        <div className="mx-6 lg:mx-3">
+          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2  max-w-7xl mx-auto gap-6">
+            {art.map((item, index) => (
+              <ArtCart key={index} art={item} />
+            ))}
+          </div>
         </div>
       </div>
       <ArtCategory />
       <Artist />
-      <FAQs/>
+      <FAQs />
     </div>
   );
 }

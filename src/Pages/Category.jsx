@@ -5,10 +5,10 @@ function Category() {
 
   return (
     <div className="max-w-7xl mx-auto my-10">
-      <div className="text-2xl font-semibold py-4 pb-6">
+      <div className="text-2xl font-semibold py-4 pb-6 mx-6 lg:mx-3">
         {loadedCategory?.length} Item found for Selected Category
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 mx-6 lg:mx-3 lg:grid-cols-3 gap-6 ">
         {loadedCategory.map((item, index) => (
           <div key={index}>
             <div className="rounded-3xl  bg-base-100 border-4 border-gray-900 shadow-md">

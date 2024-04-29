@@ -71,7 +71,7 @@ function Nav() {
             <ul className="menu menu-horizontal px-1">{link}</ul>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="hidden lg:flex gap-2 ">
           <img className="w-10" src={logo} alt="" />
           <a className="text-2xl font-extrabold">
             Draw<span className="font-light">Mastery</span>

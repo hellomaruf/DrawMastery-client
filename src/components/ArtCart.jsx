@@ -12,7 +12,7 @@ function ArtCart({ art }) {
   } = art;
   return (
     <div className="">
-      <div className="rounded-3xl  bg-base-100 border-4 border-gray-900 shadow-md">
+      <div className="rounded-3xl  bg-base-100 border-4 h-full border-gray-900 shadow-md">
         <figure className="w-full bg-gray-900 rounded-xl relative">
           <img
             src={photo}

@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 
 function ArtCategory() {
   return (
-    <div className="max-w-7xl mx-auto my-4 mt-36">
+    <div className="max-w-7xl mx-auto my-4 mt-24 lg:mt-36">
       <div className="text-center pb-12">
         <h2 className="font-right text-3xl">Paintings Category</h2>
       </div>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-6 lg:mx-3 gap-6">
         <Link to={`/category/Portrait Drawing`}  className="relative cursor-pointer">
           <img
             className="rounded-xl border-4 border-gray-900 z-0"
