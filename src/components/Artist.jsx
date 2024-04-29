@@ -3,26 +3,38 @@ import artist1 from "../assets/artist1.png";
 import artist2 from "../assets/artist2.png";
 import artist3 from "../assets/artist3.png";
 import artist4 from "../assets/artist4.png";
+import { Slide } from "react-awesome-reveal";
 
 function Artist() {
   return (
     <div className="max-w-7xl mx-auto my-10 mt-24 lg:mt-36">
       <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
         <div className="col-span-1 lg:col-span-2 mx-6 lg:mx-3">
-          <p className="text-xl text-[#FF00D3] py-2">Popular Artist</p>
-          <h1 className="text-4xl lg:text-5xl font-right">Follow & Collect they Art!</h1>
-          <p className="my-6 text-sm lg:text-base">
-            To my mind a picture should be something pleasant, cheerful and
-            pretty. There are too many unpleasant things in life as it is,
-            without creating still more of them.
-          </p>
-          <button className="btn bg-gray-900 hover:bg-gray-600 text-white rounded-xl">
-            {" "}
-            Explore More
-          </button>
+          <Slide cascade direction="left" damping={0.1}>
+            <p className="text-xl text-[#FF00D3] py-2">Popular Artist</p>
+            <h1 className="text-4xl lg:text-5xl font-right">
+              Follow & Collect they Art!
+            </h1>
+            <p className="my-6 text-sm lg:text-base">
+              To my mind a picture should be something pleasant, cheerful and
+              pretty. There are too many unpleasant things in life as it is,
+              without creating still more of them.
+            </p>
+            <button className="btn bg-gray-900 hover:bg-gray-600 text-white rounded-xl">
+              {" "}
+              Explore More
+            </button>
+          </Slide>
         </div>
         <div className="col-span-1 lg:col-span-4">
-          <Marquee gradient gradientWidth={100} gradientColor='white' pauseOnHover>
+          <Slide direction="right" cascade damping={0.1}>
+
+          <Marquee
+            gradient
+            gradientWidth={100}
+            gradientColor="white"
+            pauseOnHover
+          >
             <div className="flex ">
               <div className=" border-4 mx-2 flex flex-col  items-center border-gray-900 rounded-2xl p-10">
                 <img className="w-28 rounded-full" src={artist1} alt="" />
@@ -88,6 +100,7 @@ function Artist() {
               </div>
             </div>
           </Marquee>
+          </Slide>
         </div>
       </div>
     </div>

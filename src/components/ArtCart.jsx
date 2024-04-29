@@ -1,18 +1,14 @@
 import { Link } from "react-router-dom";
 
 function ArtCart({ art }) {
-    const {
-      _id,
-    itemName,
-    subcategory,
-    price,
-    rating,
-    photo,
-    stock,
-  } = art;
+  const { _id, itemName, subcategory, price, rating, photo, stock } = art;
   return (
     <div className="">
-      <div className="rounded-3xl  bg-base-100 border-4 h-full border-gray-900 shadow-md">
+      <div
+        data-aos="fade-down"
+        data-aos-duration="1000"
+        className="rounded-3xl  bg-base-100 border-4 h-full border-gray-900 shadow-md"
+      >
         <figure className="w-full bg-gray-900 rounded-xl relative">
           <img
             src={photo}
@@ -37,7 +33,10 @@ function ArtCart({ art }) {
             </h2>
           </div>
           <div className="card-actions">
-            <Link to={`/viewDetails/${_id}`} className="btn bg-gray-900 hover:bg-gray-600 text-white w-full rounded-xl">
+            <Link
+              to={`/viewDetails/${_id}`}
+              className="btn bg-gray-900 hover:bg-gray-600 text-white w-full rounded-xl"
+            >
               View Details
             </Link>
           </div>
