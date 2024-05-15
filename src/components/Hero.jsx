@@ -33,7 +33,7 @@ function Hero() {
             <div className="stats shadow">
               <div className="hidden lg:flex ">
                 <div className="stat">
-                  <div className="stat-figure text-primary">
+                  <div className="stat-figure text-gray-900">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -49,7 +49,7 @@ function Hero() {
                     </svg>
                   </div>
                   <div className="stat-title">Total Likes</div>
-                  <div className="stat-value text-primary text-2xl lg:text-4xl">
+                  <div className="stat-value text-gray-900 text-2xl lg:text-4xl">
                     25.6K
                   </div>
                   <div className="stat-desc">21% more than last month</div>
